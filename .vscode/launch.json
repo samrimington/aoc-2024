@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run day",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day_${input:day_number}"
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "day_number",
+            "description": "Enter day number"
+        }
+    ]
+}
