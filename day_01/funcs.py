@@ -12,7 +12,7 @@ def construct_pair_of_lists(input_str: str) -> Tuple[List[int], List[int]]:
     return left_list, right_list
 
 def calc_distance_between_lists(left: List[int], right: List[int]) -> List[int]:
-    assert(len(left) == len(right))
+    assert len(left) == len(right)
     distances = []
     for i in range(len(left)):
         difference = abs(left[i] - right[i])

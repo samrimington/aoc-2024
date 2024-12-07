@@ -8,7 +8,7 @@ def convert_to_grid(wordsearch: str) -> np.array:
     return np.array(list(map(list, wordsearch.splitlines())))
 
 def find_letter(grid: np.array, letter: str) -> List[Coords]:
-    assert(len(letter) == 1)
+    assert len(letter) == 1
     x, y = np.where(grid == letter)
     return list(zip(x.tolist(), y.tolist()))
 
@@ -22,13 +22,13 @@ def get_adjacent(grid: np.array, x0: int, y0: int) -> Dict[Coords, str]:
 
 def find_word(grid: np.array, word: str) -> List[Tuple[Coords, Coords]]:
     def line_contains_rest_of_word(x: int, y: int, d_x: int, d_y: int) -> bool:
-        assert(d_x != 0 or d_y != 0)
+        assert d_x != 0 or d_y != 0
         for letter in word[2:]:
             x, y = x + d_x, y + d_y
             if x < 0 or x >= len(grid) or y < 0 or y >= len(grid[x]) or grid[x, y] != letter:
                 return False
         return True
-    assert(len(word) > 1)
+    assert len(word) > 1
     results = []
     for x0, y0 in find_letter(grid, word[0]):
         for (x, y), letter in get_adjacent(grid, x0, y0).items():
